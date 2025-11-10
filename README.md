@@ -6,8 +6,34 @@ A simple Hello World application ready for deployment on Vercel and Docker Hub.
 [![GitHub](https://img.shields.io/badge/GitHub-Repository-black)](https://github.com/Stoic-path/vercel_hello_world)
 [![Vercel](https://img.shields.io/badge/Vercel-Deploy-black)](https://vercelhelloworld-tau.vercel.app/)
 
-## 📋 Table of Contents
+## � Screenshots / Evidence
 
+### 1. Local Development
+![Screenshot 1](screenshots/1.png)
+
+### 2. Docker Build Process
+![Screenshot 2](screenshots/2.png)
+
+### 3. Docker Container Running
+![Screenshot 3](screenshots/3.png)
+
+### 4. Docker Hub Repository
+![Screenshot 4](screenshots/4.png)
+
+### 5. GitHub Repository
+![Screenshot 5](screenshots/5.png)
+
+### 6. Vercel Deployment
+![Screenshot 6](screenshots/6.png)
+
+### 7. Application Running
+![Screenshot 7](screenshots/7.png)
+
+---
+
+##  Table of Contents
+
+- [Screenshots / Evidence](#screenshots--evidence)
 - [Overview](#overview)
 - [Prerequisites](#prerequisites)
 - [Project Structure](#project-structure)
