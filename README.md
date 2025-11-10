@@ -3,8 +3,8 @@
 A simple Hello World application ready for deployment on Vercel and Docker Hub.
 
 [![Docker Hub](https://img.shields.io/badge/Docker%20Hub-Image-blue)](https://hub.docker.com/r/stoicpath/hello-world-vercel)
-[![GitHub](https://img.shields.io/badge/GitHub-Repository-black)](https://github.com/Stoic-path/vercel_hello_world)
-[![Vercel](https://img.shields.io/badge/Vercel-Deploy-black)](https://vercel.com)
+
+[![Vercel](https://img.shields.io/badge/Vercel-Deploy-black)](https://vercelhelloworld-tau.vercel.app/)
 
 ## 📋 Table of Contents
 
@@ -43,43 +43,20 @@ Before you begin, ensure you have the following installed:
 
 ```
 vercel_hello_world/
-├── index.html          # Main HTML page (with detailed comments)
-├── Dockerfile          # Docker configuration
 ├── .dockerignore       # Files to exclude from Docker build
+├── .git/               # Git version control directory
+├── .gitignore          # Git ignore rules
+├── Dockerfile          # Docker configuration for containerization
 ├── package.json        # Node.js project configuration
 ├── vercel.json         # Vercel deployment configuration
-├── .gitignore          # Git ignore rules
-├── docs/               # Documentation folder
-│   ├── package-json-explanation.md
-│   └── vercel-json-explanation.md
-└── README.md           # This file
-```
-
-## 🧪 Local Development
-
-### Option 1: Using Node.js
-
-```bash
-# Install dependencies (optional)
-npm install -g serve
-
-# Run local server
-npm run dev
-
-# Or use serve directly
-serve .
-```
-
-Then open your browser at `http://localhost:3000`
-
-### Option 2: Simple HTTP Server
-
-```bash
-# Python 3
-python -m http.server 8000
-
-# PHP
-php -S localhost:8000
+├── README.md           # Project documentation (this file)
+├── frontend/           # Frontend application folder
+│   └── index.html      # Main HTML page with detailed English comments
+├── docs/               # Additional documentation folder
+│   ├── package-json-explanation.md    # Explains package.json structure
+│   └── vercel-json-explanation.md     # Explains vercel.json structure
+└── screenshots/        # Screenshots folder for documentation
+    └── README.md       # Instructions for screenshot placement
 ```
 
 ## 🐳 Docker Deployment
