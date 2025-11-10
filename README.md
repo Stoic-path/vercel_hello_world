@@ -37,7 +37,6 @@ Before you begin, ensure you have the following installed:
 ```
 vercel_hello_world/
 ├── .dockerignore       # Files to exclude from Docker build
-├── .git/               # Git version control directory
 ├── .gitignore          # Git ignore rules
 ├── Dockerfile          # Docker configuration for containerization
 ├── package.json        # Node.js project configuration
@@ -49,7 +48,7 @@ vercel_hello_world/
 │   ├── package-json-explanation.md    # Explains package.json structure
 │   └── vercel-json-explanation.md     # Explains vercel.json structure
 └── screenshots/        # Screenshots folder for documentation
-    └── README.md       # Instructions for screenshot placement
+
 ```
 
 ## � Deployment Options
@@ -137,5 +136,3 @@ Created as a demonstration project for distributed programming course.
 **Docker Image**: [hub.docker.com/r/stoicpath/hello-world-vercel](https://hub.docker.com/r/stoicpath/hello-world-vercel)
 
 ---
-
-**Note:** This project includes detailed English comments in the HTML file and separate documentation files for JSON configurations in the `docs/` folder.
