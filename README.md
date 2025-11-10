@@ -137,19 +137,19 @@ docker login
 Tag and push your image:
 
 ```bash
-# Tag the image (replace YOUR_DOCKERHUB_USERNAME with your actual username)
-docker tag hello-world-vercel YOUR_DOCKERHUB_USERNAME/hello-world-vercel:latest
+# Tag the image
+docker tag hello-world-vercel stoicpath/hello-world-vercel:latest
 
 # Push to Docker Hub
-docker push YOUR_DOCKERHUB_USERNAME/hello-world-vercel:latest
+docker push stoicpath/hello-world-vercel:latest
 
 # Optional: Push with version tag
-docker tag hello-world-vercel YOUR_DOCKERHUB_USERNAME/hello-world-vercel:v1.0.0
-docker push YOUR_DOCKERHUB_USERNAME/hello-world-vercel:v1.0.0
+docker tag hello-world-vercel stoicpath/hello-world-vercel:v1.0.0
+docker push stoicpath/hello-world-vercel:v1.0.0
 ```
 
 **Verify on Docker Hub:**
-Visit `https://hub.docker.com/r/YOUR_DOCKERHUB_USERNAME/hello-world-vercel`
+Visit https://hub.docker.com/r/stoicpath/hello-world-vercel
 
 ### Pull and Run from Docker Hub
 
@@ -157,10 +157,10 @@ Anyone can now pull and run your image:
 
 ```bash
 # Pull the image
-docker pull YOUR_DOCKERHUB_USERNAME/hello-world-vercel:latest
+docker pull stoicpath/hello-world-vercel:latest
 
 # Run the container
-docker run -d -p 8080:80 YOUR_DOCKERHUB_USERNAME/hello-world-vercel:latest
+docker run -d -p 8080:80 stoicpath/hello-world-vercel:latest
 ```
 
 ## 🚀 Vercel Deployment
@@ -251,10 +251,10 @@ docker rmi hello-world-vercel
 docker login
 
 # Tag image
-docker tag hello-world-vercel YOUR_USERNAME/hello-world-vercel:latest
+docker tag hello-world-vercel stoicpath/hello-world-vercel:latest
 
 # Push to Docker Hub
-docker push YOUR_USERNAME/hello-world-vercel:latest
+docker push stoicpath/hello-world-vercel:latest
 ```
 
 ### Git Commands
@@ -269,7 +269,7 @@ git add .
 git commit -m "Initial commit: Hello World project"
 
 # Add remote repository
-git remote add origin https://github.com/YOUR_USERNAME/vercel-hello-world.git
+git remote add origin https://github.com/Stoic-path/vercel_hello_world.git
 
 # Push to GitHub
 git branch -M main
@@ -278,9 +278,9 @@ git push -u origin main
 
 ## 🔗 Useful Links
 
-- **Docker Hub Image**: `https://hub.docker.com/r/YOUR_USERNAME/hello-world-vercel`
-- **Vercel Deployment**: `https://your-project.vercel.app`
-- **GitHub Repository**: `https://github.com/YOUR_USERNAME/vercel-hello-world`
+- **Docker Hub Image**: https://hub.docker.com/r/stoicpath/hello-world-vercel
+- **GitHub Repository**: https://github.com/Stoic-path/vercel_hello_world
+- **Vercel Deployment**: `https://your-project.vercel.app` (update after deployment)
 
 ## 📄 License
 
