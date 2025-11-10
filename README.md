@@ -3,7 +3,7 @@
 A simple Hello World application ready for deployment on Vercel and Docker Hub.
 
 [![Docker Hub](https://img.shields.io/badge/Docker%20Hub-Image-blue)](https://hub.docker.com/r/stoicpath/hello-world-vercel)
-
+[![GitHub](https://img.shields.io/badge/GitHub-Repository-black)](https://github.com/Stoic-path/vercel_hello_world)
 [![Vercel](https://img.shields.io/badge/Vercel-Deploy-black)](https://vercelhelloworld-tau.vercel.app/)
 
 ## 📋 Table of Contents
@@ -11,15 +11,11 @@ A simple Hello World application ready for deployment on Vercel and Docker Hub.
 - [Overview](#overview)
 - [Prerequisites](#prerequisites)
 - [Project Structure](#project-structure)
-- [Local Development](#local-development)
-- [Docker Deployment](#docker-deployment)
-  - [Step 1: Build Docker Image](#step-1-build-docker-image)
-  - [Step 2: Run Docker Container Locally](#step-2-run-docker-container-locally)
-  - [Step 3: Push to Docker Hub](#step-3-push-to-docker-hub)
-- [Vercel Deployment](#vercel-deployment)
-- [Screenshots](#screenshots)
+- [Deployment Options](#deployment-options)
+  - [Option 1: Using Docker Hub](#option-1-using-docker-hub)
+  - [Option 2: From GitHub Repository](#option-2-from-github-repository)
+  - [Option 3: Vercel Live Deployment](#option-3-vercel-live-deployment)
 - [Technologies Used](#technologies-used)
-- [License](#license)
 
 ## 🔍 Overview
 
@@ -33,11 +29,8 @@ This is a lightweight Hello World application featuring:
 
 Before you begin, ensure you have the following installed:
 
-- [Git](https://git-scm.com/downloads) (v2.0+)
-- [Docker Desktop](https://www.docker.com/products/docker-desktop) (v20.0+)
-- [Node.js](https://nodejs.org/) (v14.0+ - optional for local dev)
-- A [Docker Hub](https://hub.docker.com/) account
-- A [Vercel](https://vercel.com/) account (optional)
+- [Docker Desktop](https://www.docker.com/products/docker-desktop) installed and running
+- [Git](https://git-scm.com/downloads) (only for Option 2)
 
 ## 📁 Project Structure
 
@@ -59,139 +52,65 @@ vercel_hello_world/
     └── README.md       # Instructions for screenshot placement
 ```
 
-## 🐳 Docker Deployment
+## � Deployment Options
 
-### Step 1: Build Docker Image
+### Option 1: Using Docker Hub
 
-Open your terminal in the project directory and run:
-
-```bash
-# Build the Docker image
-docker build -t hello-world-vercel .
-
-# Verify the image was created
-docker images | grep hello-world-vercel
-```
-
-**Expected output:**
-```
-hello-world-vercel   latest    abc123def456   X seconds ago   XX.XMB
-```
-
-### Step 2: Run Docker Container Locally
+**Pull and run the pre-built image directly from Docker Hub (no source code needed):**
 
 ```bash
+# Pull the image from Docker Hub
+docker pull stoicpath/hello-world-vercel:latest
+
 # Run the container
-docker run -d -p 8080:80 --name hello-world-container hello-world-vercel
-
-# Verify container is running
-docker ps
+docker run -d -p 8080:80 --name hello-world-container stoicpath/hello-world-vercel:latest
 ```
 
-**Expected output:**
-```
-CONTAINER ID   IMAGE                COMMAND                  CREATED         STATUS         PORTS                  NAMES
-abc123def456   hello-world-vercel   "/docker-entrypoint.…"   X seconds ago   Up X seconds   0.0.0.0:8080->80/tcp   hello-world-container
-```
+**Access the application at:** http://localhost:8080
 
-**Test the application:**
-Open your browser and navigate to `http://localhost:8080`
-
-**To stop and remove the container:**
+**To stop and remove:**
 ```bash
 docker stop hello-world-container
 docker rm hello-world-container
 ```
 
-### Step 3: Push to Docker Hub
+---
 
-First, log in to Docker Hub:
+### Option 2: From GitHub Repository
 
-```bash
-# Login to Docker Hub
-docker login
-
-# Enter your Docker Hub username and password when prompted
-```
-
-Tag and push your image:
+**Clone the repository and build from source:**
 
 ```bash
-# Tag the image
-docker tag hello-world-vercel stoicpath/hello-world-vercel:latest
+# Clone repository
+git clone https://github.com/Stoic-path/vercel_hello_world.git
+cd vercel_hello_world
 
-# Push to Docker Hub
-docker push stoicpath/hello-world-vercel:latest
-
-# Optional: Push with version tag
-docker tag hello-world-vercel stoicpath/hello-world-vercel:v1.0.0
-docker push stoicpath/hello-world-vercel:v1.0.0
-```
-
-**Verify on Docker Hub:**
-Visit https://hub.docker.com/r/stoicpath/hello-world-vercel
-
-### Pull and Run from Docker Hub
-
-Anyone can now pull and run your image:
-
-```bash
-# Pull the image
-docker pull stoicpath/hello-world-vercel:latest
+# Build Docker image from source
+docker build -t hello-world-vercel .
 
 # Run the container
-docker run -d -p 8080:80 stoicpath/hello-world-vercel:latest
+docker run -d -p 8080:80 --name hello-world-container hello-world-vercel
 ```
 
-## 🚀 Vercel Deployment
+**Access the application at:** http://localhost:8080
 
-### Option 1: Using Vercel CLI
-
+**To stop and remove:**
 ```bash
-# Install Vercel CLI globally
-npm install -g vercel
-
-# Deploy to Vercel
-vercel
-
-# Follow the prompts to login and deploy
+docker stop hello-world-container
+docker rm hello-world-container
 ```
 
-### Option 2: Using Git + Vercel Dashboard
+---
 
-1. Push your code to GitHub (see commands below)
-2. Go to [vercel.com](https://vercel.com)
-3. Click "New Project"
-4. Import your GitHub repository
-5. Click "Deploy"
+### Option 3: Vercel Live Deployment
 
-### Option 3: Drag & Drop
+**Access the live application directly (no installation required):**
 
-1. Go to [vercel.com](https://vercel.com)
-2. Login to your account
-3. Drag and drop your project folder directly to the dashboard
+🌐 **Live URL:** https://vercelhelloworld-tau.vercel.app/
 
-## 📸 Screenshots
+This deployment is hosted on Vercel's serverless platform and is always available online.
 
-### Application Running Locally
-![Local Development](screenshots/local-dev.png)
-*Screenshot: Application running on localhost*
-
-### Docker Build Process
-![Docker Build](screenshots/docker-build.png)
-*Screenshot: Docker image build process*
-
-### Docker Container Running
-![Docker Running](screenshots/docker-running.png)
-*Screenshot: Container running successfully*
-
-### Docker Hub Repository
-![Docker Hub](screenshots/dockerhub-repo.png)
-*Screenshot: Image published on Docker Hub*
-
-### Vercel Deployment
-![Vercel Deploy](screenshots/vercel-deploy.png)
-*Screenshot: Application deployed on Vercel*
+---
 
 ## 🛠️ Technologies Used
 
@@ -199,67 +118,12 @@ vercel
 - **Docker** - Containerization
 - **Nginx Alpine** - Web server (lightweight)
 - **Vercel** - Serverless deployment platform
-- **Node.js** - Development server (optional)
-
-## 📝 Commands Reference
-
-### Docker Commands
-```bash
-# Build image
-docker build -t hello-world-vercel .
-
-# Run container
-docker run -d -p 8080:80 --name hello-world-container hello-world-vercel
-
-# View running containers
-docker ps
-
-# View logs
-docker logs hello-world-container
-
-# Stop container
-docker stop hello-world-container
-
-# Remove container
-docker rm hello-world-container
-
-# Remove image
-docker rmi hello-world-vercel
-
-# Login to Docker Hub
-docker login
-
-# Tag image
-docker tag hello-world-vercel stoicpath/hello-world-vercel:latest
-
-# Push to Docker Hub
-docker push stoicpath/hello-world-vercel:latest
-```
-
-### Git Commands
-```bash
-# Initialize repository
-git init
-
-# Add files
-git add .
-
-# Commit changes
-git commit -m "Initial commit: Hello World project"
-
-# Add remote repository
-git remote add origin https://github.com/Stoic-path/vercel_hello_world.git
-
-# Push to GitHub
-git branch -M main
-git push -u origin main
-```
 
 ## 🔗 Useful Links
 
 - **Docker Hub Image**: https://hub.docker.com/r/stoicpath/hello-world-vercel
 - **GitHub Repository**: https://github.com/Stoic-path/vercel_hello_world
-- **Vercel Deployment**: `https://your-project.vercel.app` (update after deployment)
+- **Live Deployment**: https://vercelhelloworld-tau.vercel.app/
 
 ## 📄 License
 
