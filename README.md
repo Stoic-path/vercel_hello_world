@@ -1,64 +1,295 @@
-# Hello World - Vercel
+# Hello World - Vercel & Docker Deployment
 
-Un simple proyecto Hello World para desplegar en Vercel.
+A simple Hello World application ready for deployment on Vercel and Docker Hub.
 
-## 🚀 Despliegue en Vercel
+[![Docker Hub](https://img.shields.io/badge/Docker%20Hub-Image-blue)](https://hub.docker.com)
+[![Vercel](https://img.shields.io/badge/Vercel-Deploy-black)](https://vercel.com)
 
-### Opción 1: Usando la CLI de Vercel
+## 📋 Table of Contents
 
-1. Instala la CLI de Vercel:
-```bash
-npm install -g vercel
-```
+- [Overview](#overview)
+- [Prerequisites](#prerequisites)
+- [Project Structure](#project-structure)
+- [Local Development](#local-development)
+- [Docker Deployment](#docker-deployment)
+  - [Step 1: Build Docker Image](#step-1-build-docker-image)
+  - [Step 2: Run Docker Container Locally](#step-2-run-docker-container-locally)
+  - [Step 3: Push to Docker Hub](#step-3-push-to-docker-hub)
+- [Vercel Deployment](#vercel-deployment)
+- [Screenshots](#screenshots)
+- [Technologies Used](#technologies-used)
+- [License](#license)
 
-2. Desde la carpeta del proyecto, ejecuta:
-```bash
-vercel
-```
+## 🔍 Overview
 
-3. Sigue las instrucciones en pantalla para iniciar sesión y desplegar.
+This is a lightweight Hello World application featuring:
+- Modern responsive design with CSS animations
+- Glassmorphism effects
+- Docker containerization with nginx
+- Ready for Vercel deployment
+- Multi-language support (English/Spanish)
 
-### Opción 2: Usando Git + Vercel Dashboard
+## ✅ Prerequisites
 
-1. Sube este proyecto a GitHub (o GitLab/Bitbucket)
-2. Ve a [vercel.com](https://vercel.com)
-3. Inicia sesión y haz clic en "New Project"
-4. Importa tu repositorio de GitHub
-5. Haz clic en "Deploy"
+Before you begin, ensure you have the following installed:
 
-### Opción 3: Arrastrar y soltar
+- [Git](https://git-scm.com/downloads) (v2.0+)
+- [Docker Desktop](https://www.docker.com/products/docker-desktop) (v20.0+)
+- [Node.js](https://nodejs.org/) (v14.0+ - optional for local dev)
+- A [Docker Hub](https://hub.docker.com/) account
+- A [Vercel](https://vercel.com/) account (optional)
 
-1. Ve a [vercel.com](https://vercel.com)
-2. Inicia sesión
-3. Arrastra la carpeta del proyecto directamente al dashboard
-
-## 🧪 Probar localmente
-
-Para ver el proyecto localmente:
-
-```bash
-npm run dev
-```
-
-Luego abre tu navegador en `http://localhost:3000`
-
-## 📁 Estructura del proyecto
+## 📁 Project Structure
 
 ```
 vercel_hello_world/
-├── index.html       # Página principal
-├── package.json     # Configuración del proyecto
-├── vercel.json      # Configuración de Vercel
-└── README.md        # Este archivo
+├── index.html          # Main HTML page with styling
+├── Dockerfile          # Docker configuration
+├── .dockerignore       # Files to exclude from Docker build
+├── package.json        # Node.js project configuration
+├── vercel.json         # Vercel deployment configuration
+├── .gitignore          # Git ignore rules
+└── README.md           # This file
 ```
 
-## 🎨 Características
+## 🧪 Local Development
 
-- Diseño responsive
-- Animaciones CSS
-- Efecto glassmorphism
-- Listo para desplegar en Vercel
+### Option 1: Using Node.js
 
-## 📝 Licencia
+```bash
+# Install dependencies (optional)
+npm install -g serve
 
-MIT
+# Run local server
+npm run dev
+
+# Or use serve directly
+serve .
+```
+
+Then open your browser at `http://localhost:3000`
+
+### Option 2: Simple HTTP Server
+
+```bash
+# Python 3
+python -m http.server 8000
+
+# PHP
+php -S localhost:8000
+```
+
+## 🐳 Docker Deployment
+
+### Step 1: Build Docker Image
+
+Open your terminal in the project directory and run:
+
+```bash
+# Build the Docker image
+docker build -t hello-world-vercel .
+
+# Verify the image was created
+docker images | grep hello-world-vercel
+```
+
+**Expected output:**
+```
+hello-world-vercel   latest    abc123def456   X seconds ago   XX.XMB
+```
+
+### Step 2: Run Docker Container Locally
+
+```bash
+# Run the container
+docker run -d -p 8080:80 --name hello-world-container hello-world-vercel
+
+# Verify container is running
+docker ps
+```
+
+**Expected output:**
+```
+CONTAINER ID   IMAGE                COMMAND                  CREATED         STATUS         PORTS                  NAMES
+abc123def456   hello-world-vercel   "/docker-entrypoint.…"   X seconds ago   Up X seconds   0.0.0.0:8080->80/tcp   hello-world-container
+```
+
+**Test the application:**
+Open your browser and navigate to `http://localhost:8080`
+
+**To stop and remove the container:**
+```bash
+docker stop hello-world-container
+docker rm hello-world-container
+```
+
+### Step 3: Push to Docker Hub
+
+First, log in to Docker Hub:
+
+```bash
+# Login to Docker Hub
+docker login
+
+# Enter your Docker Hub username and password when prompted
+```
+
+Tag and push your image:
+
+```bash
+# Tag the image (replace YOUR_DOCKERHUB_USERNAME with your actual username)
+docker tag hello-world-vercel YOUR_DOCKERHUB_USERNAME/hello-world-vercel:latest
+
+# Push to Docker Hub
+docker push YOUR_DOCKERHUB_USERNAME/hello-world-vercel:latest
+
+# Optional: Push with version tag
+docker tag hello-world-vercel YOUR_DOCKERHUB_USERNAME/hello-world-vercel:v1.0.0
+docker push YOUR_DOCKERHUB_USERNAME/hello-world-vercel:v1.0.0
+```
+
+**Verify on Docker Hub:**
+Visit `https://hub.docker.com/r/YOUR_DOCKERHUB_USERNAME/hello-world-vercel`
+
+### Pull and Run from Docker Hub
+
+Anyone can now pull and run your image:
+
+```bash
+# Pull the image
+docker pull YOUR_DOCKERHUB_USERNAME/hello-world-vercel:latest
+
+# Run the container
+docker run -d -p 8080:80 YOUR_DOCKERHUB_USERNAME/hello-world-vercel:latest
+```
+
+## 🚀 Vercel Deployment
+
+### Option 1: Using Vercel CLI
+
+```bash
+# Install Vercel CLI globally
+npm install -g vercel
+
+# Deploy to Vercel
+vercel
+
+# Follow the prompts to login and deploy
+```
+
+### Option 2: Using Git + Vercel Dashboard
+
+1. Push your code to GitHub (see commands below)
+2. Go to [vercel.com](https://vercel.com)
+3. Click "New Project"
+4. Import your GitHub repository
+5. Click "Deploy"
+
+### Option 3: Drag & Drop
+
+1. Go to [vercel.com](https://vercel.com)
+2. Login to your account
+3. Drag and drop your project folder directly to the dashboard
+
+## 📸 Screenshots
+
+### Application Running Locally
+![Local Development](screenshots/local-dev.png)
+*Screenshot: Application running on localhost*
+
+### Docker Build Process
+![Docker Build](screenshots/docker-build.png)
+*Screenshot: Docker image build process*
+
+### Docker Container Running
+![Docker Running](screenshots/docker-running.png)
+*Screenshot: Container running successfully*
+
+### Docker Hub Repository
+![Docker Hub](screenshots/dockerhub-repo.png)
+*Screenshot: Image published on Docker Hub*
+
+### Vercel Deployment
+![Vercel Deploy](screenshots/vercel-deploy.png)
+*Screenshot: Application deployed on Vercel*
+
+## �️ Technologies Used
+
+- **HTML5** - Markup structure
+- **CSS3** - Styling and animations
+- **Docker** - Containerization
+- **Nginx Alpine** - Web server (lightweight)
+- **Vercel** - Serverless deployment platform
+- **Node.js** - Development server (optional)
+
+## 📝 Commands Reference
+
+### Docker Commands
+```bash
+# Build image
+docker build -t hello-world-vercel .
+
+# Run container
+docker run -d -p 8080:80 --name hello-world-container hello-world-vercel
+
+# View running containers
+docker ps
+
+# View logs
+docker logs hello-world-container
+
+# Stop container
+docker stop hello-world-container
+
+# Remove container
+docker rm hello-world-container
+
+# Remove image
+docker rmi hello-world-vercel
+
+# Login to Docker Hub
+docker login
+
+# Tag image
+docker tag hello-world-vercel YOUR_USERNAME/hello-world-vercel:latest
+
+# Push to Docker Hub
+docker push YOUR_USERNAME/hello-world-vercel:latest
+```
+
+### Git Commands
+```bash
+# Initialize repository
+git init
+
+# Add files
+git add .
+
+# Commit changes
+git commit -m "Initial commit: Hello World project"
+
+# Add remote repository
+git remote add origin https://github.com/YOUR_USERNAME/vercel-hello-world.git
+
+# Push to GitHub
+git branch -M main
+git push -u origin main
+```
+
+## 🔗 Useful Links
+
+- **Docker Hub Image**: `https://hub.docker.com/r/YOUR_USERNAME/hello-world-vercel`
+- **Vercel Deployment**: `https://your-project.vercel.app`
+- **GitHub Repository**: `https://github.com/YOUR_USERNAME/vercel-hello-world`
+
+## 📄 License
+
+MIT License - feel free to use this project for learning purposes.
+
+## � Author
+
+Created as a demonstration project for distributed programming course.
+
+---
+
+**Note:** Replace `YOUR_USERNAME` and `YOUR_DOCKERHUB_USERNAME` with your actual usernames in the commands above.
