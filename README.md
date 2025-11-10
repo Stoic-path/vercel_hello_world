@@ -36,8 +36,6 @@ Before you begin, ensure you have the following installed:
 
 ```
 vercel_hello_world/
-├── .dockerignore       # Files to exclude from Docker build
-├── .gitignore          # Git ignore rules
 ├── Dockerfile          # Docker configuration for containerization
 ├── package.json        # Node.js project configuration
 ├── vercel.json         # Vercel deployment configuration
@@ -51,7 +49,7 @@ vercel_hello_world/
 
 ```
 
-## � Deployment Options
+## 🚀 Deployment Options
 
 ### Option 1: Using Docker Hub
 
