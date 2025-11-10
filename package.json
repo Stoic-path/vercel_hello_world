@@ -1,0 +1,17 @@
+{
+  "name": "vercel-hello-world",
+  "version": "1.0.0",
+  "description": "Hello World application for Vercel deployment",
+  "main": "index.html",
+  "scripts": {
+    "dev": "npx serve .",
+    "start": "npx serve ."
+  },
+  "keywords": [
+    "vercel",
+    "hello-world",
+    "static-site"
+  ],
+  "author": "",
+  "license": "MIT"
+}
