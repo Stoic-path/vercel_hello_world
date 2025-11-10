@@ -2,7 +2,8 @@
 
 A simple Hello World application ready for deployment on Vercel and Docker Hub.
 
-[![Docker Hub](https://img.shields.io/badge/Docker%20Hub-Image-blue)](https://hub.docker.com)
+[![Docker Hub](https://img.shields.io/badge/Docker%20Hub-Image-blue)](https://hub.docker.com/r/stoicpath/hello-world-vercel)
+[![GitHub](https://img.shields.io/badge/GitHub-Repository-black)](https://github.com/Stoic-path/vercel_hello_world)
 [![Vercel](https://img.shields.io/badge/Vercel-Deploy-black)](https://vercel.com)
 
 ## 📋 Table of Contents
@@ -23,11 +24,10 @@ A simple Hello World application ready for deployment on Vercel and Docker Hub.
 ## 🔍 Overview
 
 This is a lightweight Hello World application featuring:
-- Modern responsive design with CSS animations
-- Glassmorphism effects
+- Simple and clean HTML structure
 - Docker containerization with nginx
 - Ready for Vercel deployment
-- Multi-language support (English/Spanish)
+- Fully documented code with English comments
 
 ## ✅ Prerequisites
 
@@ -43,12 +43,15 @@ Before you begin, ensure you have the following installed:
 
 ```
 vercel_hello_world/
-├── index.html          # Main HTML page with styling
+├── index.html          # Main HTML page (with detailed comments)
 ├── Dockerfile          # Docker configuration
 ├── .dockerignore       # Files to exclude from Docker build
 ├── package.json        # Node.js project configuration
 ├── vercel.json         # Vercel deployment configuration
 ├── .gitignore          # Git ignore rules
+├── docs/               # Documentation folder
+│   ├── package-json-explanation.md
+│   └── vercel-json-explanation.md
 └── README.md           # This file
 ```
 
@@ -213,10 +216,9 @@ vercel
 ![Vercel Deploy](screenshots/vercel-deploy.png)
 *Screenshot: Application deployed on Vercel*
 
-## �️ Technologies Used
+## 🛠️ Technologies Used
 
-- **HTML5** - Markup structure
-- **CSS3** - Styling and animations
+- **HTML5** - Markup structure with detailed comments
 - **Docker** - Containerization
 - **Nginx Alpine** - Web server (lightweight)
 - **Vercel** - Serverless deployment platform
@@ -286,10 +288,13 @@ git push -u origin main
 
 MIT License - feel free to use this project for learning purposes.
 
-## � Author
+## 👤 Author
 
 Created as a demonstration project for distributed programming course.
 
+**Repository**: [github.com/Stoic-path/vercel_hello_world](https://github.com/Stoic-path/vercel_hello_world)  
+**Docker Image**: [hub.docker.com/r/stoicpath/hello-world-vercel](https://hub.docker.com/r/stoicpath/hello-world-vercel)
+
 ---
 
-**Note:** Replace `YOUR_USERNAME` and `YOUR_DOCKERHUB_USERNAME` with your actual usernames in the commands above.
+**Note:** This project includes detailed English comments in the HTML file and separate documentation files for JSON configurations in the `docs/` folder.
